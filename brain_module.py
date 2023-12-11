@@ -38,7 +38,6 @@ class ChatGPT:
         ]
         response = self.client.chat.completions.create(model="gpt-3.5-turbo",
         messages=messages)
-        print(response)
 
         # Return the message content from the API response
         return response.choices[0].message.content

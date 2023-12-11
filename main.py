@@ -8,8 +8,8 @@ if  __name__ == "__main__":
     profile = read_profile('job_description.txt')
     resume = read_docx('resume.docx')
 
-    question_1 = q["sumarize_resume"].format(profile = profile)
-    question_2 = q["qualify_resume"].format(profile = profile, resume = resume)
+    question_1 = q["sumarize_resume"].format(resume = resume)
+    question_2 = q["qualify_resume"].format(job = profile, resume = resume)
 
     bot = ChatGPT()
     response = bot.request_openai(question_1)
