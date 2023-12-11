@@ -41,7 +41,7 @@ class ChatGPT:
         print(response)
 
         # Return the message content from the API response
-        return response["choices"][0]["message"]["content"]
+        return response.choices[0].message.content
 
 # If you need to test or use this directly, you can do:
 # if __name__ == "__main__":
