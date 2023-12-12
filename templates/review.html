@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Evaluation Result made by chatGPT</h1>
+
+    <h3>Profile</h3>
+    <div id="description"></div>
+
+    <br />
+    <h3>Result</h3>
+    <blockquote class="blockquote text-center text-success">
+      <p>{{ answer2 }}</p>
+      <footer class="blockquote-footer">OpenAI (2023), <cite title="The Greek Way">ChatGPT (Dic 10 version) [LLM].</cite></footer>
+    </blockquote>
+
+    <div id="payload" style="visibility:hidden;">{{ answer1 }}</div>
+    <script type="text/javascript">
+      json = document.getElementById("payload").innerHTML.replace("\t", " ");
+      const payload = JSON.parse(json);
+      const description = document.getElementById("description");
+      
+      Object.entries(payload).forEach((entry) => {
+        const [key, value] = entry;
+        console.log(`${key}: ${value}`);
+        const item = document.createElement('div');
+        item.innerHTML = `<b>${key}:</b> ${value}`;
+        description.appendChild(item)
+      });
+    </script>
+
+</div>
+{% endblock %}

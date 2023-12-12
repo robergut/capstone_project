@@ -1,0 +1,22 @@
+## Your Day-to-Day
+This job posting is for Data Engineer on our team. Here's what you'll be doing in your day-to-day work:
+
+- Design and implement product features in collaboration with product owners, report developers, product analysts, architects, and business partners within an Agile / Scrum methodology.
+- Design and implement data platforms for large-scale, high-performance, and scalable requirements, integrating data from several data sources, and managing structured and unstructured data while melding existing warehouse structures.
+- Analyze, diagnose and identify bottlenecks in data workflows
+- Participate in demos to clients and requirements elicitation and translation to systems requirements (functional and nonfunctional).
+- Constantly monitor, refine and report on the performance of data management systems.
+
+## Are You a Fit?
+To be successful in this role, you must have:
+
+- Strong Programming Skills with Python.
+- Solid experience with EMR and Databricks.
+- Solid engineering foundations (good coding practices, good architectural design skills).
+- Experience working with SQL in advanced scenarios that require heavy optimization.
+- 7+ years of experience with large-scale data engineering with an emphasis on analytics and reporting
+- Experience building cloud-scalable, real-time and high-performance Data Lake solutions.
+- Proficiency in designing and implementing ETL (Extract, Transform, load) processes, dealing with big volumes of data (terabytes of data which required distributed processing)
+- Experience developing solutions within Cloud Services (AWS)
+- Experience in data streams processing technologies including Kafka, Spark Streaming, etc (nice to have)
+- Advanced English level.

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Jobs Master</title>
+{% endblock %}
+
+{% block body %}
+
+    <h1 style="text-align: center">Job Descriptions</h1>
+    {% if jobs|length < 1 %}
+    <h4 style="text-align: center">There are no jobs. Create one below!</h4>
+    {% else %}
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Job</th>
+            <th>Location</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for job in jobs %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td>{{ job.title }}</td>
+                <td>{{ job.location }}</td>
+                <td>{{ job.date_created.date() }}</td>
+                <td>
+                    <a href="/update/{{job.id}}">
+                        <i class="bi bi-file-earmark-person-fill"></i>
+                    </a> &#124;
+                    <a href="/delete/{{job.id}}">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a> &#124;
+                    <a href="/outline/{{job.id}}">
+                        <i class="bi bi-person-bounding-box"></i>
+                    </a>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
+    Add new Job Description
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Job Description</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+                <div class="form-group row">
+                  <label for="id" class="col-sm-2 col-form-label">Job Id</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="id" name="id" placeholder="Job Id" value="{{ request.form['id'] }}">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="title" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Job Title" value="{{ request.form['title'] }}">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="location" class="col-sm-2 col-form-label">Location</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Location" value="{{ request.form['location'] }}">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="content" name="content" placeholder="Job details" rows="15">{{ request.form['content'] }}</textarea>
+                  </div>
+                </div>
+                <br />
+                <div class="form-group row">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

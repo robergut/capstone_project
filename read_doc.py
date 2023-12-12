@@ -1,16 +1,11 @@
 from docx import Document
-import os
 
-url = './resources/{0}'
-
-def read_profile(file):
-    path = os.path.abspath(url.format(file))
+def read_profile(path):
     with open(path, 'r') as f:
         text = f.read()
     return text
 
-def read_docx(file):
-    path = os.path.abspath(url.format(file))
+def read_docx(path):
     document = Document(path)
     text = ""
 
